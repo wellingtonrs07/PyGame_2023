@@ -25,9 +25,7 @@ class Button():
             if pygame.mouse.get_pressed()[0] == True:
                 apertou = True # Apertou o botão
 
-
-        if self.rect.collidepoint(pos) == False:
-            self.image = imagem # Troca a imagem
+        screen.blit(self.image, self.rect) #Coloca o botão na tela
             
 
         return apertou
