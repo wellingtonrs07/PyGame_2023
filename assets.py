@@ -4,7 +4,7 @@ from config import largura, altura, WIDTH_CARRO, HEIGHT_CARRO, WIDTH_NPC,HEIGHT_
 
 PAISAGEM = 'paisagem'
 CARRO_IMG = 'carro'
-ASFALTO = 'asfalto'
+RUA = 'asfalto'
 TelaI = 'Tela Inicial'
 NEW_GAME = 'new_game'
 
@@ -12,9 +12,10 @@ NEW_GAME = 'new_game'
 def load_assets():
     assets = {}
 
-    assets[TelaI] = pygame.image.load(os.path.join(Imagens, 'tela_inicial.png')).convert()
+    assets[TelaI] = pygame.image.load(os.path.join(Imagens, 'menu.png')).convert()
     assets[TelaI] = pygame.transform.scale(assets[TelaI],(largura, altura))
-    assets[ASFALTO] = pygame.image.load(os.path.join(Imagens, 'asphalt-texture.png')).convert()
+    
+    assets[RUA] = pygame.image.load(os.path.join(Imagens, 'rua.png')).convert()
 
     btns = {}
 
