@@ -6,6 +6,8 @@ PAISAGEM = 'paisagem'
 CARRO_IMG = 'carro'
 ASFALTO = 'asfalto'
 TelaI = 'Tela Inicial'
+NEW_GAME = 'new_game'
+
 
 def load_assets():
     assets = {}
@@ -14,4 +16,7 @@ def load_assets():
     assets[TelaI] = pygame.transform.scale(assets[TelaI],(largura, altura))
     assets[ASFALTO] = pygame.image.load(os.path.join(Imagens, 'asphalt-texture.png')).convert()
 
-    return [assets]
+    btns = {}
+
+    btns[NEW_GAME] = pygame.image.load(os.path.join(Imagens, 'botao_jogar')).convert()
+    return [assets,btns]
