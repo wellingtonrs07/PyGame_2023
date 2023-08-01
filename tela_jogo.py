@@ -12,6 +12,7 @@ def telajogo(screen):
     clock = pygame.time.Clock()
 
     assets = load_assets()[0]
+    
 
     telajogo = assets[RUA]
     fundo_rect = telajogo.get_rect()
