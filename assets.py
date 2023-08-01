@@ -18,5 +18,5 @@ def load_assets():
 
     btns = {}
 
-    btns[NEW_GAME] = pygame.image.load(os.path.join(Imagens, 'botao_jogar')).convert()
+    btns[NEW_GAME] = pygame.image.load(os.path.join(Imagens, 'botao_jogar.png')).convert()
     return [assets,btns]
