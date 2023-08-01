@@ -7,7 +7,7 @@ class Button():
     
     # Cria os botões
     def __init__(self, x, y, imagem):
-        self.image = imagem[0]
+        self.image = imagem
         self.rect = self.image.get_rect()
         self.rect.topleft = (x,y)
     
@@ -20,17 +20,14 @@ class Button():
 
 
         if self.rect.collidepoint(pos):
-            self.image = imagem[1] # Troca imagem
+            self.image = imagem # Troca imagem
 
             if pygame.mouse.get_pressed()[0] == True:
                 apertou = True # Apertou o botão
 
 
         if self.rect.collidepoint(pos) == False:
-            self.image = imagem[0] # Troca a imagem
-
-
-        screen.blit(self.image, self.rect) # Coloca o botão na tela 
+            self.image = imagem # Troca a imagem
             
 
         return apertou

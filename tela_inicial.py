@@ -46,6 +46,7 @@ def telainicial(screen):
 
             if new:
                 state = INIT # muda para a intro do jogo (telaintro)
+                state = INIT # muda para a intro do jogo (telaintro)
                 running = False # para de rodar
 
         # Depois de desenhar tudo, inverte o display.
