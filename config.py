@@ -4,8 +4,8 @@ import pygame
 
 
 # Infos Básicas
-largura = 1200
-altura = 800
+largura = 1300
+altura = 700
 fps = 60
 WIDTH_CARRO = 100
 HEIGHT_CARRO = 50
