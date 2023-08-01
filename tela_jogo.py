@@ -1,5 +1,5 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul
+from config import largura, altura, fps, QUIT, GAME,Azul, INIT
 import pygame
 from assets import RUA,NEW_GAME,load_assets
 from classes import Button

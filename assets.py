@@ -21,5 +21,7 @@ def load_assets():
     btns = {}
 
     btns[NEW_GAME] = pygame.image.load(os.path.join(Imagens, 'btn_inicio.png')).convert()
+    btns[NEW_GAME] = pygame.transform.scale(btns[NEW_GAME],(200,100))
+
     btns[INSTRUCOES] = pygame.image.load(os.path.join(Imagens, 'btn_inicio.png')).convert()
     return [assets,btns]
