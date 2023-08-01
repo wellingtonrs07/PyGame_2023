@@ -11,3 +11,6 @@ fps = 60
 # States
 quit = 0
 iniciando = 1
+
+# Paths para arquivos/pastas
+Imagens = path.join(path.dirname(__file__), 'images')
