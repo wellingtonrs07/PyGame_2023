@@ -7,6 +7,7 @@ CARRO_IMG = 'carro'
 ASFALTO = 'asfalto'
 TelaI = 'Tela Inicial'
 NEW_GAME = 'new_game'
+INSTRUCOES = 'instrucoes'
 
 
 def load_assets():
@@ -18,5 +19,6 @@ def load_assets():
 
     btns = {}
 
-    btns[NEW_GAME] = pygame.image.load(os.path.join(Imagens, 'botao_jogar.png')).convert()
+    btns[NEW_GAME] = pygame.image.load(os.path.join(Imagens, 'btn_inicio.png')).convert()
+    btns[INSTRUCOES] = pygame.image.load(os.path.join(Imagens, 'btn_inicio.png')).convert()
     return [assets,btns]

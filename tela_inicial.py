@@ -1,5 +1,5 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul
+from config import largura, altura, fps, QUIT, GAME,Azul,INIT
 import pygame
 from assets import TelaI,NEW_GAME,load_assets
 from classes import Button
@@ -45,7 +45,7 @@ def telainicial(screen):
                 running = False # para de rodar
 
             if new:
-                state = intro # muda para a intro do jogo (telaintro)
+                state = INIT # muda para a intro do jogo (telaintro)
                 running = False # para de rodar
 
         # Depois de desenhar tudo, inverte o display.
