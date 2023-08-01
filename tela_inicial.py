@@ -1,12 +1,12 @@
 # Imports e arquivos
-from config import largura, altura, fps, quit, iniciando,Azul
+from config import largura, altura, fps, QUIT, GAME,Azul
 import pygame
-from assets import TelaI,assets
+from assets import TelaI,load_assets
 
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Velozes e Furiosos')
-assets = assets()[0]
+assets = load_assets()[0]
 
 def telainicial(screen):
     # Variável para o ajuste de velocidade
@@ -27,7 +27,7 @@ def telainicial(screen):
         for event in pygame.event.get():
             # Verifica se foi fechado.
             if event.type == pygame.QUIT:
-                state = quit # muda o state para quit
+                state = QUIT # muda o state para quit
                 running = False # para de rodar
 
         # Depois de desenhar tudo, inverte o display.
