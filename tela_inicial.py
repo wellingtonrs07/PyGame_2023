@@ -1,5 +1,5 @@
 # Imports e arquivos
-from config import largura, altura, fps, quit, iniciando
+from config import largura, altura, fps, quit, iniciando,Azul
 import pygame
 from assets import TelaI,assets
 
@@ -17,7 +17,7 @@ def telainicial(screen):
     fundo = assets[TelaI]
     fundo_rect = fundo.get_rect()
     while running:
-        screen.fill(0,0,0)
+        screen.fill(Azul)
         screen.blit(fundo, fundo_rect)
 
         # Ajusta a velocidade do jogo.

@@ -4,8 +4,8 @@ import pygame
 
 
 # Infos Básicas
-largura = 580
-altura = 700
+largura = 1500
+altura = 500
 fps = 60
 
 # States
@@ -14,3 +14,5 @@ iniciando = 1
 
 # Paths para arquivos/pastas
 Imagens = path.join(path.dirname(__file__), 'images')
+
+Azul = 	(0, 0, 255)
