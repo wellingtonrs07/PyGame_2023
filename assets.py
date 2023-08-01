@@ -8,7 +8,7 @@ RUA = 'rua'
 TelaI = 'Tela Inicial'
 NEW_GAME = 'new_game'
 INSTRUCOES = 'instrucoes'
-
+RETURN = 'return'
 
 def load_assets():
     assets = {}
@@ -23,5 +23,8 @@ def load_assets():
     btns[NEW_GAME] = pygame.image.load(os.path.join(Imagens, 'btn_inicio.png')).convert()
     btns[NEW_GAME] = pygame.transform.scale(btns[NEW_GAME],(200,100))
 
-    btns[INSTRUCOES] = pygame.image.load(os.path.join(Imagens, 'btn_inicio.png')).convert()
+    btns[RETURN] = pygame.image.load(os.path.join(Imagens, 'btn_return.png')).convert()
+
+    btns[INSTRUCOES] = pygame.image.load(os.path.join(Imagens, 'btn_inte.png')).convert()
+
     return [assets,btns]

@@ -1,40 +1,36 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul,INIT, INTR
+from config import largura, altura, fps, QUIT, GAME,Azul, RET
 import pygame
-from assets import TelaI,NEW_GAME,load_assets, INSTRUCOES
+from assets import TelaI, INSTRUCOES, RETURN,load_assets
 from classes import Button
 
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Velozes e Furiosos')
 
-def telainicial(screen):
+def telainstrucoes(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
-    assets = load_assets()[0]
-    btns = load_assets()[1]
+    assets, btns = load_assets()
 
-    fundo = assets[TelaI]
-    fundo_rect = fundo.get_rect()
+    tela_instrucoes = assets[TelaI]
+    instrucoes_rect = tela_instrucoes.get_rect()
 
     # começa a rodar o loop
     running = True
 
-
     # coloca a posição dos botões
-    botaonew = Button(((largura/2 - 180)), altura/2 - 200, btns[NEW_GAME])
-    botaointe = Button(((largura/2 - 180)), altura/2 - 100, btns[INSTRUCOES])
+    botaoreturn = Button(((largura/2 - 180)), altura/2 - 200, btns[RETURN])
     
     while running:
 
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Azul)
-        screen.blit(fundo, fundo_rect)
+        screen.blit(tela_instrucoes, instrucoes_rect)
 
         # Desenha os botões
-        new = botaonew.aparecer(screen, btns[NEW_GAME])
-        inte = botaointe.aparecer(screen, btns[INSTRUCOES])
+        ret = botaoreturn.aparecer(screen, btns[RETURN])
 
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
@@ -46,17 +42,16 @@ def telainicial(screen):
                 state = QUIT # muda o state para quit
                 running = False # para de rodar
 
-            if new:
-                state = INIT # muda para a intro do jogo (telaintro)
+            if ret:
+                state = RET # muda para a intro do jogo (telaintro)
+                state = RET # muda para a intro do jogo (telaintro)
                 running = False # para de rodar
-            
-            elif inte:
-                state = INTR
-                running = False # para de rodar
-
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
         pygame.display.update()
         
     return state
+    
+
+    

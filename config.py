@@ -17,6 +17,8 @@ QUIT = 0
 GAME = 1
 INIT = 2
 END = 3
+INTR = 4
+RET = 5
 
 # Paths para arquivos/pastas
 Imagens = path.join(path.dirname(__file__), 'images')

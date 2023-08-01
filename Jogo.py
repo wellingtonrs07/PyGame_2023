@@ -2,9 +2,10 @@
 
 # Importar bibliotecas e arquivos
 import pygame
-from config import largura,altura,fps,GAME,QUIT, INIT
+from config import largura,altura,fps,GAME,QUIT,INIT,INTR,RET
 from tela_inicial import telainicial
 from tela_jogo import telajogo
+from tela_instrucoes import telainstrucoes
 
 
 # Inicializa o pygame e o mixer
@@ -22,6 +23,10 @@ while state != QUIT:
         state = telainicial(tela)
     elif state == INIT:
         state = telajogo(tela)
+    elif state == INTR:
+        state = telainstrucoes(tela)
+    elif state == RET:
+        state = telainicial(tela)
     else:
         state = QUIT
 
