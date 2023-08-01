@@ -14,6 +14,7 @@ def load_assets():
 
     assets[TelaI] = pygame.image.load(os.path.join(Imagens, 'menu.png')).convert()
     assets[TelaI] = pygame.transform.scale(assets[TelaI],(largura, altura))
+    
     assets[RUA] = pygame.image.load(os.path.join(Imagens, 'rua.png')).convert()
 
     btns = {}
