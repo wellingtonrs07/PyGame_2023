@@ -4,10 +4,17 @@ import pygame
 
 
 # Infos Básicas
-largura = 580
-altura = 700
+WIDTH = 1500
+HEIGHT = 500
 fps = 60
+WIDTH_CARRO = 100
+HEIGHT_CARRO = 50
+WIDTH_NPC = 100
+HEIGHT_NPC = 50
 
 # States
-quit = 0
-iniciando = 1
+QUIT = 0
+GAME = 1
+INIT = 2
+END = 3
+
