@@ -24,6 +24,7 @@ def telajogo(screen):
     running = True
     scroll = 0
 
+
     while running:
         #Toca a música
         pygame.mixer.music.set_volume(0.4)
@@ -34,6 +35,8 @@ def telajogo(screen):
         imagem_fundo_bg = telajogo.get_width()
 
         screen.blit(assets[RUA], (scroll, 0))
+
+        # Desenha os botões
     
         #Colocando o scrool no fundo
 
