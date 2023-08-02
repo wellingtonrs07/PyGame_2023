@@ -2,8 +2,8 @@
 from config import largura, altura, fps, QUIT, GAME,Azul, INIT
 from math import*
 import pygame
-from assets import RUA,NEW_GAME,load_assets, JOGADOR
-from classes import Button, Jogador
+from assets import RUA,NEW_GAME,load_assets, JOGADOR, LISTA_IMAGEM
+from classes import Button, Jogador, Obstaculo
 
 
 # Gera a tela
@@ -13,6 +13,7 @@ def telajogo(screen):
     assets, btns = load_assets()
     jogador = Jogador(assets)
 
+
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
@@ -20,13 +21,21 @@ def telajogo(screen):
     
 
     telajogo = assets[RUA]
-    fundo_rect = telajogo.get_rect()
 
     # começa a rodar o loop
     running = True
     scroll = 0
+    all_obs = pygame.sprite.Group()
+
+    groups = {}
+    groups['all_obs'] = all_obs
+    for obs in assets[LISTA_IMAGEM]:
+        obs = Obstaculo(obs)
+        all_obs.add(obs)
 
     while running:
+
+
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Azul)
 
@@ -46,7 +55,8 @@ def telajogo(screen):
         
         screen.blit(jogador.image, (jogador.rect.x, jogador.rect.y))
 
-  
+
+
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
 
@@ -76,8 +86,10 @@ def telajogo(screen):
                     jogador.vy_jogador += 8 #faz o jogador se movimentar para baixo
                     
 
-
+        all_obs.update()
         jogador.update()
+
+        all_obs.draw(screen)
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
