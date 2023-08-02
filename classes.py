@@ -44,13 +44,18 @@ class Jogador(pygame.sprite.Sprite):
     
     def update(self):
         # Atualização da posição do barco
-        self.rect.y+= self.vy_jogador
+        self.rect.y += self.vy_jogador
+        print(self.rect.y)
 
         # Mantem dentro da tela
-        if self.rect.y > 350:
-            self.rect.y = 350
+        # if self.rect.y > 350:
+        #     self.rect.y = 350
 
-        if self.rect.x > 700:
-            self.rect.x = 700
+        
+        if self.rect.y > 700:
+            self.rect.y = 700
+        
+        if self.rect.y < 0:
+            self.rect.y = 0
 
 
