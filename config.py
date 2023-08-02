@@ -25,5 +25,5 @@ OVER = 7
 
 # Paths para arquivos/pastas
 Imagens = path.join(path.dirname(__file__), 'images')
-
+Sons = path.join(path.dirname(__file__), 'sounds')
 Azul = (0,0,255)

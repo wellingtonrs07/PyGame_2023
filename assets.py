@@ -1,6 +1,6 @@
 import pygame
 import os
-from config import largura, altura, WIDTH_CARRO, HEIGHT_CARRO, WIDTH_NPC,HEIGHT_NPC, Imagens
+from config import largura, altura, WIDTH_CARRO, HEIGHT_CARRO, WIDTH_NPC,HEIGHT_NPC, Imagens, Sons
 
 PAISAGEM = 'paisagem'
 CARRO_IMG = 'carro'
@@ -61,5 +61,11 @@ def load_assets():
 
     btns[INSTRUCOES] = pygame.image.load(os.path.join(Imagens, 'btn_inte.png')).convert_alpha()
     btns[INSTRUCOES] = pygame.transform.scale(btns[INSTRUCOES], (75, 75))
+
+    #Load dos sons do jogo
+    pygame.mixer.music.load(os.path.join(Sons, 'musica_tela_inicial_e_instrucoes.mp3'))
+    pygame.mixer.music.load(os.path.join(Sons, 'trilha_sonora_jogando.mp3'))
+    pygame.mixer.music.set_volume(0.4)
+
 
     return [assets,btns]
