@@ -38,24 +38,19 @@ class Jogador(pygame.sprite.Sprite):
         self.image = assets[JOGADOR]
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
-        self.rect.centerx = largura/2
-        self.rect.bottom = altura - 10
+        self.rect.centerx = 130
+        self.rect.bottom = altura/2
         self.vy_jogador = 0
     
     def update(self):
         # Atualização da posição do barco
         self.rect.y += self.vy_jogador
-        print(self.rect.y)
-
-        # Mantem dentro da tela
-        # if self.rect.y > 350:
-        #     self.rect.y = 350
+        
+        if self.rect.y > 520:
+            self.rect.y = 520
 
         
-        if self.rect.y > 700:
-            self.rect.y = 700
-        
-        if self.rect.y < 0:
-            self.rect.y = 0
+        if self.rect.y < 54:
+            self.rect.y = 54
 
 
