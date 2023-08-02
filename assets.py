@@ -13,6 +13,8 @@ RETURN = 'return'
 JOGADOR = 'jogador'
 TELA_WIN = 'tela win'
 TELA_OVER = 'tela over'
+
+LISTA_IMAGEM = 'lista imagem'
 OBSTACULO1 = 'lixeira'
 OBSTACULO2 = 'saco de lixo'
 OBSTACULO3 = 'maciel'
@@ -40,17 +42,13 @@ def load_assets():
     assets[TELA_OVER] =  pygame.image.load(os.path.join(Imagens, 'tela_game_over.png')).convert_alpha()
     assets[TELA_OVER] = pygame.transform.scale(assets[TELA_WIN],(largura, altura))
 
-    assets[OBSTACULO1] = pygame.image.load(os.path.join(Imagens,'lixo.png')).convert_alpha()
-    assets[OBSTACULO1] = pygame.transform.scale(assets[OBSTACULO1],(WIDTH_NPC, HEIGHT_NPC))
+    assets[LISTA_IMAGEM] =  [
+        pygame.image.load(os.path.join(Imagens, 'lixo.png')).convert_alpha(), 
+        pygame.image.load(os.path.join(Imagens, 'maciel.png')).convert_alpha(),
+        pygame.image.load(os.path.join(Imagens, 'mendigao.png')).convert_alpha(),
+        pygame.image.load(os.path.join(Imagens, 'saco_lixo.png')).convert_alpha()]
 
-    assets[OBSTACULO2] = pygame.image.load(os.path.join(Imagens,'saco_lixo.png')).convert_alpha()
-    assets[OBSTACULO2] = pygame.transform.scale(assets[OBSTACULO2],(WIDTH_NPC, HEIGHT_NPC))
-
-    assets[OBSTACULO3] = pygame.image.load(os.path.join(Imagens,'maciel.png')).convert_alpha()
-    assets[OBSTACULO3] = pygame.transform.scale(assets[OBSTACULO3],(WIDTH_NPC, HEIGHT_NPC))
-
-    assets[OBSTACULO4] = pygame.image.load(os.path.join(Imagens,'mendigao.png')).convert_alpha()
-    assets[OBSTACULO4] = pygame.transform.scale(assets[OBSTACULO4],(WIDTH_NPC, HEIGHT_NPC))
+    assets[LISTA_IMAGEM] =  [pygame.transform.scale(assets[LISTA_IMAGEM][0], (100,100)), pygame.transform.scale(assets[LISTA_IMAGEM][1], (100,100)), pygame.transform.scale(assets[LISTA_IMAGEM][2], (100,100)), pygame.transform.scale(assets[LISTA_IMAGEM][3], (100,100))]
 
     assets[VIDA] = pygame.image.load(os.path.join(Imagens,'coracao.png')).convert_alpha()
     assets[VIDA] = pygame.transform.scale(assets[VIDA],(75, 75))
@@ -67,6 +65,5 @@ def load_assets():
 
     btns[INSTRUCOES] = pygame.image.load(os.path.join(Imagens, 'btn_inte.png')).convert_alpha()
     btns[INSTRUCOES] = pygame.transform.scale(btns[INSTRUCOES], (75, 75))
-
 
     return [assets,btns]
