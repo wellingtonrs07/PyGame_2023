@@ -1,5 +1,5 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul,INIT, INTR
+from config import largura, altura, fps, QUIT, GAME,Azul,INIT, INTR,SOM_INICIAL
 import pygame
 from assets import TelaI,NEW_GAME,load_assets, INSTRUCOES
 from classes import Button
@@ -7,6 +7,15 @@ from classes import Button
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Velozes e Furiosos')
+
+# Inicializa o pygame e o mixer
+pygame.init()
+pygame.mixer.init()
+
+
+
+
+
 
 def telainicial(screen):
     # Variável para o ajuste de velocidade
@@ -35,6 +44,8 @@ def telainicial(screen):
         # Desenha os botões
         new = botaonew.aparecer(screen, btns[NEW_GAME])
         inte = botaointe.aparecer(screen, btns[INSTRUCOES])
+
+
 
         # Ajusta a velocidade do jogo.
         clock.tick(fps)

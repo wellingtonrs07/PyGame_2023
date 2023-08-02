@@ -13,7 +13,14 @@ RETURN = 'return'
 JOGADOR = 'jogador'
 TELA_WIN = 'tela win'
 TELA_OVER = 'tela over'
+
 LISTA_IMAGEM = 'lista imagem'
+OBSTACULO1 = 'lixeira'
+OBSTACULO2 = 'saco de lixo'
+OBSTACULO3 = 'maciel'
+OBSTACULO4 = 'mendigo'
+VIDA = 'VIDA'
+
 
 def load_assets():
     assets = {}
@@ -43,6 +50,11 @@ def load_assets():
 
     assets[LISTA_IMAGEM] =  [pygame.transform.scale(assets[LISTA_IMAGEM][0], (100,100)), pygame.transform.scale(assets[LISTA_IMAGEM][1], (100,100)), pygame.transform.scale(assets[LISTA_IMAGEM][2], (100,100)), pygame.transform.scale(assets[LISTA_IMAGEM][3], (100,100))]
 
+    assets[VIDA] = pygame.image.load(os.path.join(Imagens,'coracao.png')).convert_alpha()
+    assets[VIDA] = pygame.transform.scale(assets[VIDA],(75, 75))
+
+
+
     btns = {}
 
     btns[NEW_GAME] = pygame.image.load(os.path.join(Imagens, 'btn_inicio.png')).convert_alpha()
@@ -53,7 +65,5 @@ def load_assets():
 
     btns[INSTRUCOES] = pygame.image.load(os.path.join(Imagens, 'btn_inte.png')).convert_alpha()
     btns[INSTRUCOES] = pygame.transform.scale(btns[INSTRUCOES], (75, 75))
-
-
 
     return [assets,btns]

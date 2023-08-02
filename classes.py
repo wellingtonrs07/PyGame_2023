@@ -2,8 +2,8 @@
 
 # Importar as bibliotecas e arquivos
 import pygame
-from config import largura, altura
-from assets import JOGADOR, LISTA_IMAGEM
+from config import largura, altura,Click
+from assets import JOGADOR
 # Cria classe dos botoes
 class Button():
     
@@ -26,6 +26,7 @@ class Button():
 
             if pygame.mouse.get_pressed()[0] == True:
                 apertou = True # Apertou o botão
+                pygame.mixer.Channel(1).play(pygame.mixer.Sound(Click)) # Toca o som do botão
 
         screen.blit(self.image, self.rect) #Coloca o botão na tela
             
@@ -80,3 +81,4 @@ class Obstaculo(pygame.sprite.Sprite):
 
 
 
+            self.rect.y = 54

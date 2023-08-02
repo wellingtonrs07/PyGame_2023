@@ -1,5 +1,5 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul, INIT
+from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO
 from math import*
 import pygame
 from assets import RUA,NEW_GAME,load_assets, JOGADOR, LISTA_IMAGEM
@@ -8,6 +8,15 @@ from classes import Button, Jogador, Obstaculo
 
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
+#Inicializa mixer
+pygame.mixer.init()
+
+# load e play do som de fundo
+pygame.mixer.music.load(SOM_JOGO)
+pygame.mixer.music.set_volume(0.05)
+pygame.mixer.music.play(-1)
+
+
 
 def telajogo(screen):
     assets, btns = load_assets()
@@ -33,15 +42,21 @@ def telajogo(screen):
         obs = Obstaculo(obs)
         all_obs.add(obs)
 
+
     while running:
 
 
+        #Toca a música
+        pygame.mixer.music.set_volume(0.4)
+        
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Azul)
 
         imagem_fundo_bg = telajogo.get_width()
 
         screen.blit(assets[RUA], (scroll, 0))
+
+        # Desenha os botões
     
         #Colocando o scrool no fundo
 
