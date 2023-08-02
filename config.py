@@ -8,8 +8,8 @@ from math import*
 largura = 1300
 altura = 700
 fps = 60
-WIDTH_CARRO = 100
-HEIGHT_CARRO = 50
+WIDTH_CARRO = 150
+HEIGHT_CARRO = 80
 WIDTH_NPC = 100
 HEIGHT_NPC = 50
 

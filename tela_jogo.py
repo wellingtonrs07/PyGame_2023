@@ -2,14 +2,17 @@
 from config import largura, altura, fps, QUIT, GAME,Azul, INIT
 from math import*
 import pygame
-from assets import RUA,NEW_GAME,load_assets
-from classes import Button
+from assets import RUA,NEW_GAME,load_assets, JOGADOR
+from classes import Button, Jogador
 
 
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
 
 def telajogo(screen):
+    assets, btns = load_assets()
+    jogador = Jogador(assets)
+
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
@@ -40,6 +43,8 @@ def telajogo(screen):
         #Resetando o scroll
         if abs(scroll) > imagem_fundo_bg:
             scroll = 0
+        
+        screen.blit(jogador.image, (0,350))
 
  
   

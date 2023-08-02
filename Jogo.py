@@ -6,6 +6,7 @@ from config import largura,altura,fps,GAME,QUIT,INIT,INTR,RET
 from tela_inicial import telainicial
 from tela_jogo import telajogo
 from tela_instrucoes import telainstrucoes
+from assets import load_assets
 
 
 # Inicializa o pygame e o mixer
@@ -17,6 +18,8 @@ tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Nitro Dash')
 
 state = GAME
+
+assets = load_assets()[0]
 
 while state != QUIT:
     if state == GAME:

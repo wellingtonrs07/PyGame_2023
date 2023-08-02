@@ -2,6 +2,8 @@
 
 # Importar as bibliotecas e arquivos
 import pygame
+from config import largura, altura
+from assets import JOGADOR
 # Cria classe dos botoes
 class Button():
     
@@ -27,5 +29,26 @@ class Button():
 
         screen.blit(self.image, self.rect) #Coloca o botão na tela
             
-
         return apertou
+    
+#criando classe pro jogador
+class Jogador(pygame.sprite.Sprite):
+    def __init__(self, assets):
+        pygame.sprite.Sprite.__init__(self) 
+        self.image = assets[JOGADOR]
+        self.mask = pygame.mask.from_surface(self.image)
+        self.rect = self.image.get_rect()
+        self.rect.centerx = largura/2
+        self.rect.bottom = altura - 10
+        self.vx_jogador = 0
+    
+    def update(self):
+        # Atualização da posição do barco
+        self.rect.x += self.vx_jogador
+
+        # Mantem dentro da tela
+        if self.rect.x > 595:
+            self.rect.x = 595
+        if self.rect.x < -30:
+            self.rect.x = -29
+

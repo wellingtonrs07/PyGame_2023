@@ -9,6 +9,7 @@ TelaI = 'Tela Inicial'
 NEW_GAME = 'new_game'
 INSTRUCOES = 'instrucoes'
 RETURN = 'return'
+JOGADOR = 'jogador'
 
 def load_assets():
     assets = {}
@@ -17,6 +18,9 @@ def load_assets():
     assets[TelaI] = pygame.transform.scale(assets[TelaI],(largura, altura))
     
     assets[RUA] = pygame.image.load(os.path.join(Imagens, 'rua.png')).convert()
+    assets[JOGADOR] = pygame.image.load(os.path.join(Imagens, 'carro_imagem.png')).convert()
+
+    assets
 
     btns = {}
 
