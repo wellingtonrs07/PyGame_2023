@@ -28,7 +28,7 @@ def telajogo(screen):
     while running:
         #Toca a música
         pygame.mixer.music.set_volume(0.4)
-        pygame.mixer.music.play(assets[SOM_JOGANDO])
+        
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Azul)
 
