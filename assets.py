@@ -17,7 +17,8 @@ OBSTACULO1 = 'lixeira'
 OBSTACULO2 = 'saco de lixo'
 OBSTACULO3 = 'maciel'
 OBSTACULO4 = 'mendigo'
-
+SOM_TELA_INICIAL = 'som da tela inicial'
+SOM_JOGANDO = 'som do jogo'
 
 def load_assets():
     assets = {}
@@ -63,9 +64,9 @@ def load_assets():
     btns[INSTRUCOES] = pygame.transform.scale(btns[INSTRUCOES], (75, 75))
 
     #Load dos sons do jogo
-    pygame.mixer.music.load(os.path.join(Sons, 'musica_tela_inicial_e_instrucoes.mp3'))
-    pygame.mixer.music.load(os.path.join(Sons, 'trilha_sonora_jogando.mp3'))
-    pygame.mixer.music.set_volume(0.4)
-
+    som_inicial = pygame.mixer.music.load(os.path.join(Sons, 'musica_tela_inicial_e_instrucoes.mp3'))
+    som_jogando = pygame.mixer.music.load(os.path.join(Sons, 'trilha_sonora_jogando.mp3'))
+    assets[SOM_TELA_INICIAL] = som_inicial
+    assets[SOM_JOGANDO] = som_jogando
 
     return [assets,btns]

@@ -2,17 +2,15 @@
 from config import largura, altura, fps, QUIT, GAME,Azul, INIT
 from math import*
 import pygame
-from assets import RUA,NEW_GAME,load_assets, JOGADOR
+from assets import RUA,NEW_GAME,load_assets, JOGADOR , SOM_JOGANDO, SOM_TELA_INICIAL
 from classes import Button, Jogador
-
-
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
+pygame.mixer.init()
 
 def telajogo(screen):
     assets, btns = load_assets()
     jogador = Jogador(assets)
-
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
@@ -27,6 +25,9 @@ def telajogo(screen):
     scroll = 0
 
     while running:
+        #Toca a música
+        pygame.mixer.music.set_volume(0.4)
+        pygame.mixer.music.play(assets[SOM_JOGANDO])
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Azul)
 
@@ -55,6 +56,7 @@ def telajogo(screen):
             # Verifica se foi fechado.
             if event.type == pygame.QUIT:
                 state = QUIT # muda o state para quit
+                pygame.mixer.stop()
                 running = False # para de rodar
             
             # Verifica se apertou alguma tecla.
