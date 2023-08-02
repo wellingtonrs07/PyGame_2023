@@ -1,16 +1,27 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul, INIT
+from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO
 from math import*
 import pygame
-from assets import RUA,NEW_GAME,load_assets, JOGADOR , SOM_JOGANDO, SOM_TELA_INICIAL
+from assets import RUA,NEW_GAME,load_assets, JOGADOR
 from classes import Button, Jogador
+
+
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
+#Inicializa mixer
 pygame.mixer.init()
+
+# load e play do som de fundo
+pygame.mixer.music.load(SOM_JOGO)
+pygame.mixer.music.set_volume(0.05)
+pygame.mixer.music.play(-1)
+
+
 
 def telajogo(screen):
     assets, btns = load_assets()
     jogador = Jogador(assets)
+
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
@@ -59,7 +70,6 @@ def telajogo(screen):
             # Verifica se foi fechado.
             if event.type == pygame.QUIT:
                 state = QUIT # muda o state para quit
-                pygame.mixer.stop()
                 running = False # para de rodar
             
             # Verifica se apertou alguma tecla.
