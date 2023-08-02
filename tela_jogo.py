@@ -29,9 +29,6 @@ def telajogo(screen):
 
         imagem_fundo_bg = telajogo.get_width()
 
-        tiles = ceil(largura / imagem_fundo_bg) + 1
-
-    #for i in range(0, tiles):
         screen.blit(assets[RUA], (scroll, 0))
     
         #Colocando o scrool no fundo
