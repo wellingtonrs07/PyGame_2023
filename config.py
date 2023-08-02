@@ -20,6 +20,8 @@ INIT = 2
 END = 3
 INTR = 4
 RET = 5
+WIN = 6
+OVER = 7
 
 # Paths para arquivos/pastas
 Imagens = path.join(path.dirname(__file__), 'images')
