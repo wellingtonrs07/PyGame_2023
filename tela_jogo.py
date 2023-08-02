@@ -1,9 +1,10 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO
+from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO,Imagens
 from math import*
 import pygame
 from assets import RUA,NEW_GAME,load_assets, JOGADOR
 from classes import Button, Jogador
+from os import path
 
 
 # Gera a tela
@@ -24,6 +25,11 @@ def telajogo(screen):
 
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
+
+    coracao = pygame.image.load(path.join(Imagens, 'coracao.png')).convert_alpha()
+    coracao = pygame.transform.scale(coracao, (70, 50))
+    coracaoRect = coracao.get_rect()
+    coracaoRect.center = (1200, 30)
 
     assets = load_assets()[0]
     
@@ -60,6 +66,7 @@ def telajogo(screen):
             scroll = 0
         
         screen.blit(jogador.image, (jogador.rect.x, jogador.rect.y))
+        screen.blit(coracao,coracaoRect)
 
   
         # Ajusta a velocidade do jogo.
