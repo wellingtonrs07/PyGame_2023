@@ -2,14 +2,17 @@
 from config import largura, altura, fps, QUIT, GAME,Azul, INIT
 from math import*
 import pygame
-from assets import RUA,NEW_GAME,load_assets
-from classes import Button
+from assets import RUA,NEW_GAME,load_assets, JOGADOR
+from classes import Button, Jogador
 
 
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
 
 def telajogo(screen):
+    assets, btns = load_assets()
+    jogador = Jogador(assets)
+
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
@@ -40,8 +43,9 @@ def telajogo(screen):
         #Resetando o scroll
         if abs(scroll) > imagem_fundo_bg:
             scroll = 0
+        
+        screen.blit(jogador.image, (jogador.rect.x, jogador.rect.y))
 
- 
   
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
@@ -52,6 +56,26 @@ def telajogo(screen):
             if event.type == pygame.QUIT:
                 state = QUIT # muda o state para quit
                 running = False # para de rodar
+            
+            # Verifica se apertou alguma tecla.
+            if event.type == pygame.KEYDOWN:
+                # Dependendo da tecla, altera a velocidade.
+                if event.key == pygame.K_UP:#verifica a telca apertada 
+                    jogador.vy_jogador -= 8 #Faz o jogador se movimenta para cima
+                    
+                if event.key == pygame.K_DOWN:#verifica a tecla apertada 
+                    jogador.vy_jogador += 8 #faz o jogador se movimentar para baixo
+
+            jogador.update()
+            # Verifica se apertou alguma tecla.
+            if event.type == pygame.KEYDOWN:
+                # Dependendo da tecla, altera a velocidade.
+                if event.key == pygame.K_UP:#verifica a telca apertada 
+                    jogador.vy_jogador += 8 #Faz o jogador se movimenta para cima
+                    
+                if event.key == pygame.K_DOWN:#verifica a tecla apertada 
+                    jogador.vy_jogador -= 8 #faz o jogador se movimentar para baixo
+            jogador.update()
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()

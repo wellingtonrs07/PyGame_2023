@@ -1,7 +1,7 @@
 # Imports e arquivos
 from config import largura, altura, fps, QUIT, GAME,Azul, RET
 import pygame
-from assets import TelaI, INSTRUCOES, RETURN,load_assets
+from assets import TelaI, TelaInstrucao, INSTRUCOES, RETURN,load_assets
 from classes import Button
 
 # Gera a tela
@@ -14,7 +14,7 @@ def telainstrucoes(screen):
 
     assets, btns = load_assets()
 
-    tela_instrucoes = assets[TelaI]
+    tela_instrucoes = assets[TelaInstrucao]
     instrucoes_rect = tela_instrucoes.get_rect()
 
     # começa a rodar o loop
@@ -52,6 +52,7 @@ def telainstrucoes(screen):
         pygame.display.update()
         
     return state
+
     
 
     

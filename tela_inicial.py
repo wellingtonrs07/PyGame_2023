@@ -23,7 +23,7 @@ def telainicial(screen):
 
 
     # coloca a posição dos botões
-    botaonew = Button(((largura/2 - 180)), altura/2 - 200, btns[NEW_GAME])
+    botaonew = Button((((largura/2)-150)), (altura/2 - 200), btns[NEW_GAME])
     botaointe = Button(1225, 0, btns[INSTRUCOES])
     
     while running:
