@@ -9,7 +9,6 @@ TelaI = 'Tela Inicial'
 NEW_GAME = 'new_game'
 INSTRUCOES = 'instrucoes'
 RETURN = 'return'
-
 def load_assets():
     assets = {}
 
