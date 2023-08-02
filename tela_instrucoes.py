@@ -52,7 +52,7 @@ def telainstrucoes(screen):
         pygame.display.update()
         
     return state
-print('oi')
+
     
 
     
