@@ -14,7 +14,7 @@ pygame.mixer.init()
 
 # ----- Gera tela principal
 tela = pygame.display.set_mode((largura, altura))
-pygame.display.set_caption('Velozes e Furiosos')
+pygame.display.set_caption('Nitro Dash')
 
 state = GAME
 

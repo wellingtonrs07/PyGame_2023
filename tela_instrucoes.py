@@ -6,7 +6,7 @@ from classes import Button
 
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
-pygame.display.set_caption('Velozes e Furiosos')
+pygame.display.set_caption('Nitro Dash')
 
 def telainstrucoes(screen):
     # Variável para o ajuste de velocidade
@@ -21,7 +21,7 @@ def telainstrucoes(screen):
     running = True
 
     # coloca a posição dos botões
-    botaoreturn = Button(((largura/2 - 180)), altura/2 - 200, btns[RETURN])
+    botaoreturn = Button(1225, 0, btns[RETURN])
     
     while running:
 
