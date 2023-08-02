@@ -22,7 +22,7 @@ def load_assets():
     assets[TelaInstrucao] = pygame.transform.scale(assets[TelaInstrucao],(largura, altura))
     
     assets[RUA] = pygame.image.load(os.path.join(Imagens, 'rua.png')).convert()
-    assets[JOGADOR] = pygame.image.load(os.path.join(Imagens, 'carro_imagem.png')).convert()
+    assets[JOGADOR] = pygame.image.load(os.path.join(Imagens, 'carro_imagem.png')).convert_alpha()
 
     assets
 
