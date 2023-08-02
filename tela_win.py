@@ -2,7 +2,7 @@
 from config import largura, altura, fps, QUIT, GAME,Azul, INIT,OVER, WIN
 from math import*
 import pygame
-from assets import RUA,NEW_GAME,load_assets, JOGADOR,GAME_OVER,WIN
+from assets import RUA,NEW_GAME,load_assets, JOGADOR,TELA_WIN
 from classes import Button, Jogador
 
 # Gera a tela
@@ -17,7 +17,7 @@ def telaover(screen):
     assets = load_assets()[0]
     
 
-    telajogo = assets[WIN]
+    telajogo = assets[TELA_WIN]
     fundo_rect = telajogo.get_rect()
 
     # começa a rodar o loop
@@ -30,7 +30,7 @@ def telaover(screen):
 
         imagem_fundo_bg = telajogo.get_width()
 
-        screen.blit(assets[WIN], (scroll, 0))
+        screen.blit(assets[TELA_WIN], (scroll, 0))
 
         # Ajusta a velocidade do jogo.
         clock.tick(fps)

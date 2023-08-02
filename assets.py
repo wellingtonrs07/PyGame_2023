@@ -11,6 +11,8 @@ NEW_GAME = 'new_game'
 INSTRUCOES = 'instrucoes'
 RETURN = 'return'
 JOGADOR = 'jogador'
+TELA_WIN = 'tela win'
+TELA_OVER = 'tela over'
 
 def load_assets():
     assets = {}
@@ -25,7 +27,12 @@ def load_assets():
 
     assets[JOGADOR] = pygame.image.load(os.path.join(Imagens, 'carro_imagem.png')).convert_alpha()
     assets[JOGADOR] = pygame.transform.scale(assets[JOGADOR], (250,120))
-    assets
+
+    assets[TELA_WIN] =  pygame.image.load(os.path.join(Imagens, 'tela_win.png')).convert_alpha()
+    assets[TELA_WIN] = pygame.transform.scale(assets[TELA_WIN],(largura, altura))
+
+    assets[TELA_OVER] =  pygame.image.load(os.path.join(Imagens, 'tela_game_over.png')).convert_alpha()
+    assets[TELA_OVER] = pygame.transform.scale(assets[TELA_WIN],(largura, altura))
 
 
     btns = {}
