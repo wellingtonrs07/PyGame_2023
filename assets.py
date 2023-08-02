@@ -13,6 +13,11 @@ RETURN = 'return'
 JOGADOR = 'jogador'
 TELA_WIN = 'tela win'
 TELA_OVER = 'tela over'
+OBSTACULO1 = 'lixeira'
+OBSTACULO2 = 'saco de lixo'
+OBSTACULO3 = 'maciel'
+OBSTACULO4 = 'mendigo'
+
 
 def load_assets():
     assets = {}
@@ -34,6 +39,17 @@ def load_assets():
     assets[TELA_OVER] =  pygame.image.load(os.path.join(Imagens, 'tela_game_over.png')).convert_alpha()
     assets[TELA_OVER] = pygame.transform.scale(assets[TELA_WIN],(largura, altura))
 
+    assets[OBSTACULO1] = pygame.image.load(os.path.join(Imagens,'lixo.png')).convert_alpha()
+    assets[OBSTACULO1] = pygame.transform.scale(assets[OBSTACULO1],(WIDTH_NPC, HEIGHT_NPC))
+
+    assets[OBSTACULO2] = pygame.image.load(os.path.join(Imagens,'saco_lixo.png')).convert_alpha()
+    assets[OBSTACULO2] = pygame.transform.scale(assets[OBSTACULO2],(WIDTH_NPC, HEIGHT_NPC))
+
+    assets[OBSTACULO3] = pygame.image.load(os.path.join(Imagens,'maciel.png')).convert_alpha()
+    assets[OBSTACULO3] = pygame.transform.scale(assets[OBSTACULO3],(WIDTH_NPC, HEIGHT_NPC))
+
+    assets[OBSTACULO4] = pygame.image.load(os.path.join(Imagens,'mendigao.png')).convert_alpha()
+    assets[OBSTACULO4] = pygame.transform.scale(assets[OBSTACULO4],(WIDTH_NPC, HEIGHT_NPC))
 
     btns = {}
 
