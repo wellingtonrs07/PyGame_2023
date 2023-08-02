@@ -46,7 +46,6 @@ def telajogo(screen):
         
         screen.blit(jogador.image, (0,350))
 
- 
   
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
@@ -57,6 +56,14 @@ def telajogo(screen):
             if event.type == pygame.QUIT:
                 state = QUIT # muda o state para quit
                 running = False # para de rodar
+            
+            # Verifica se apertou alguma tecla.
+            if event.type == pygame.KEYDOWN:
+                # Dependendo da tecla, altera a velocidade.
+                if event.key == pygame.K_UP:#verifica a telca apertada 
+                    jogador.vy_jogador -= 8#Faz o jogador se movimenta para a esquerda 
+                if event.key == pygame.K_DOWN:#verifica a tecla apertada 
+                    jogador.vy_jogador += 8#faz o jogador se movimentar para a direita 
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
