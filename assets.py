@@ -17,6 +17,7 @@ OBSTACULO1 = 'lixeira'
 OBSTACULO2 = 'saco de lixo'
 OBSTACULO3 = 'maciel'
 OBSTACULO4 = 'mendigo'
+VIDA = 'VIDA'
 
 
 def load_assets():
@@ -50,6 +51,11 @@ def load_assets():
 
     assets[OBSTACULO4] = pygame.image.load(os.path.join(Imagens,'mendigao.png')).convert_alpha()
     assets[OBSTACULO4] = pygame.transform.scale(assets[OBSTACULO4],(WIDTH_NPC, HEIGHT_NPC))
+
+    assets[VIDA] = pygame.image.load(os.path.join(Imagens,'coracao.png')).convert_alpha()
+    assets[VIDA] = pygame.transform.scale(assets[VIDA],(75, 75))
+
+
 
     btns = {}
 

@@ -26,6 +26,7 @@ def telajogo(screen):
     running = True
     scroll = 0
 
+
     while running:
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Azul)
@@ -33,6 +34,8 @@ def telajogo(screen):
         imagem_fundo_bg = telajogo.get_width()
 
         screen.blit(assets[RUA], (scroll, 0))
+
+        # Desenha os botões
     
         #Colocando o scrool no fundo
 

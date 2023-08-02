@@ -25,5 +25,6 @@ OVER = 7
 
 # Paths para arquivos/pastas
 Imagens = path.join(path.dirname(__file__), 'images')
+Click = path.join(path.dirname(__file__), 'sounds', 'mixkit-fast-double-click-on-mouse-275.wav')
 
 Azul = (0,0,255)
