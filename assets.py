@@ -6,6 +6,7 @@ PAISAGEM = 'paisagem'
 CARRO_IMG = 'carro'
 RUA = 'rua'
 TelaI = 'Tela Inicial'
+TelaInstrucao = 'tela instrucao'
 NEW_GAME = 'new_game'
 INSTRUCOES = 'instrucoes'
 RETURN = 'return'
@@ -15,8 +16,12 @@ def load_assets():
 
     assets[TelaI] = pygame.image.load(os.path.join(Imagens, 'menu.png')).convert()
     assets[TelaI] = pygame.transform.scale(assets[TelaI],(largura, altura))
+
+    assets[TelaInstrucao] = pygame.image.load(os.path.join(Imagens, 'tela_instrucoes.png')).convert()
+    assets[TelaInstrucao] = pygame.transform.scale(assets[TelaInstrucao],(largura, altura))
     
     assets[RUA] = pygame.image.load(os.path.join(Imagens, 'rua.png')).convert()
+
 
     btns = {}
 
