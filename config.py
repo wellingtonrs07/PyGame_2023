@@ -1,6 +1,7 @@
 # Configurações do jogo
 from os import path
 import pygame
+from math import*
 
 
 # Infos Básicas
