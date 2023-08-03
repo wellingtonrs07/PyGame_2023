@@ -85,7 +85,7 @@ def telajogo(screen):
 
         screen.blit(assets[RUA], (scroll + imagem_fundo_bg, 0))
 
-        scroll -= 5
+        scroll -= 8
     
         #Resetando o scroll
         if abs(scroll) > imagem_fundo_bg:
