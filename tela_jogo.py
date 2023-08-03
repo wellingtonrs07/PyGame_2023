@@ -131,6 +131,9 @@ def telajogo(screen):
 
         all_obs.draw(screen)
 
+        # Verifica se houve colisão entre nave e meteoro
+        hits = pygame.sprite.spritecollide(jogador,all_obs, True)
+
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
         pygame.display.update()
