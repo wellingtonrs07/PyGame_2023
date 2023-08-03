@@ -8,7 +8,8 @@ from classes import Button, Jogador,Obstaculo
 from os import path
 import time
 
-
+# Nível
+nivel = 0
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
 #Inicializa mixer
@@ -101,9 +102,13 @@ def telajogo(screen):
         # Calcular o tempo decorrido
         tempo_atual = time.time()
         segundos_decorridos = int(tempo_atual - tempo_inicial)
-        if segundos_decorridos >= 60:
+        if segundos_decorridos >= 60 and segundos_decorridos < 90:
             #Aumento do nível e velocidade do carro
+            scroll -= 8
+            nivel = 1
+        if segundos_decorridos >= 90:
             scroll -= 10
+            nivel = 2
         # Renderizar o contador na tela
         texto_contador = font.render(f"{segundos_decorridos} seg", True, (255, 255, 255))
         screen.blit(texto_contador, (10, 10))
