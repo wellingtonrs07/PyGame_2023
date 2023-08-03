@@ -10,7 +10,7 @@ from assets import load_assets
 from tela_win import telawin
 
 
-# Inicializa o pygame e o mixer
+# Inicializa o pygame e o mixer a
 pygame.init()
 pygame.mixer.init()
 
