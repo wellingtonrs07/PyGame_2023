@@ -51,6 +51,8 @@ def telajogo(screen):
         obs = Obstaculo(obs)
         all_obs.add(obs)
 
+    # Variável para acompanhar o tempo decorrido
+
 
     while running:
 
