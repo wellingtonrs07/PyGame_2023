@@ -8,7 +8,7 @@ from classes import Button, Jogador
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
 
-def telaover(screen):
+def telawin(screen):
     assets, btns = load_assets()
     
     # Variável para o ajuste de velocidade

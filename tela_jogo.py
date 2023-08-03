@@ -1,8 +1,8 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO,Imagens,Fontes
+from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO,Imagens,Fontes, WIN
 from math import*
 import pygame
-from assets import RUA,NEW_GAME,load_assets, JOGADOR, LISTA_IMAGEM
+from assets import RUA,NEW_GAME,load_assets, JOGADOR, LISTA_IMAGEM,TELA_WIN
 from classes import Button, Jogador,Obstaculo
 from os import path
 import time
@@ -20,6 +20,7 @@ pygame.mixer.music.play(-1)
 
 pygame.font.init()
 font = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),22)
+font1 = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),33)
 
 
 
@@ -33,6 +34,9 @@ def telajogo(screen):
 
     # Variável para acompanhar o tempo decorrido
     tempo_inicial = time.time()
+
+    #Variável para contabilizar as vidas:
+    vidas = 3
 
     coracao = pygame.image.load(path.join(Imagens, 'coracao.png')).convert_alpha()
     coracao = pygame.transform.scale(coracao, (70, 50))
@@ -93,10 +97,17 @@ def telajogo(screen):
         # Calcular o tempo decorrido
         tempo_atual = time.time()
         segundos_decorridos = int(tempo_atual - tempo_inicial)
+        if segundos_decorridos == 15:
+            level1 = True
+
 
         # Renderizar o contador na tela
         texto_contador = font.render(f"{segundos_decorridos} seg", True, (255, 255, 255))
         screen.blit(texto_contador, (10, 10))
+
+        # Renderizar o contador de vidas
+        vidas_contador = font1.render(f'{vidas}',True, (255,255,255))
+        screen.blit(vidas_contador, (1230, 15))
 
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
