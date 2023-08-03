@@ -1,5 +1,5 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul, INIT,Imagens,Fontes
+from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO,Imagens,Fontes, WIN, OVER
 from math import*
 import random
 import pygame
@@ -63,7 +63,7 @@ def telajogo(screen):
         all_obs.add(obs)
 
     # Variável para acompanhar o tempo decorrido
-
+    over = False
     assets = load_assets()[0]
     while running:
 
@@ -111,6 +111,14 @@ def telajogo(screen):
         # Renderizar o contador de vidas
         vidas_contador = font1.render(f'{vidas}',True, (255,255,255))
         screen.blit(vidas_contador, (1230, 15))
+        # Verifica se houve colisão entre nave e meteoro
+        hits = pygame.sprite.spritecollide(jogador,all_obs, True)
+
+        if len(hits) > 0:
+            vidas -=1
+
+            if vidas == 0:
+                over = True
 
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
@@ -118,6 +126,10 @@ def telajogo(screen):
             if event.type == pygame.QUIT:
                 state = QUIT # muda o state para quit
                 running = False # para de rodar
+            
+            if over == True:
+                    state = OVER
+                    running = False
             
             # Verifica se apertou alguma tecla.
             if event.type == pygame.KEYUP:
@@ -138,18 +150,11 @@ def telajogo(screen):
                     jogador.vy_jogador += 8 #faz o jogador se movimentar para baixo
 
 
-                    
-
         all_obs.update()
         jogador.update()
 
         all_obs.draw(screen)
 
-        # Verifica se houve colisão entre nave e meteoro
-        hits = pygame.sprite.spritecollide(jogador,all_obs, True)
-
-        if len(hits) > 0:
-            vidas 
         for obstac in hits: # OBSTACULO  
             img = random.choice(assets[LISTA_IMAGEM])  
             obs = Obstaculo(img)

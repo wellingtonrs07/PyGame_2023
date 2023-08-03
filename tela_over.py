@@ -1,24 +1,20 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul, INIT,OVER
+from config import largura, altura, fps, QUIT,Azul
 from math import*
 import pygame
-from assets import RUA,NEW_GAME,load_assets, JOGADOR,TELA_OVER
-from classes import Button, Jogador
+from assets import load_assets,TELA_OVER
 
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
 
 def telaover(screen):
-    assets, btns = load_assets()
+    assets = load_assets()
     
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
     assets = load_assets()[0]
     
-
-    telajogo = assets[TELA_OVER]
-    fundo_rect = telajogo.get_rect()
 
     # começa a rodar o loop
     running = True
@@ -27,8 +23,6 @@ def telaover(screen):
     while running:
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Azul)
-
-        imagem_fundo_bg = telajogo.get_width()
 
         screen.blit(assets[TELA_OVER], (scroll, 0))
 
@@ -41,6 +35,10 @@ def telaover(screen):
             if event.type == pygame.QUIT:
                 state = QUIT # muda o state para quit
                 running = False # para de rodar
-
+        
+        
+        # Depois de desenhar tudo, inverte o display.
+        pygame.display.flip()
+        pygame.display.update()
+        
     return state
-            
