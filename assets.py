@@ -1,7 +1,8 @@
 import pygame
 import os
 from config import largura, altura, WIDTH_CARRO, HEIGHT_CARRO, WIDTH_NPC,HEIGHT_NPC, Imagens
-
+pygame.mixer.init()
+#Nomeando as keys do dicionário assets
 PAISAGEM = 'paisagem'
 CARRO_IMG = 'carro'
 RUA = 'rua'
@@ -20,7 +21,6 @@ OBSTACULO2 = 'saco de lixo'
 OBSTACULO3 = 'maciel'
 OBSTACULO4 = 'mendigo'
 VIDA = 'VIDA'
-
 
 def load_assets():
     assets = {}

@@ -34,8 +34,7 @@ while state != QUIT:
     elif state == INIT:
         state = telajogo(tela)
         # load e play do som de fundo
-        pygame.mixer.music.load(SOM_JOGO)
-        pygame.mixer.music.set_volume(0.05)
+    
         pygame.mixer.music.play(-1)
 
     elif state == INTR:
