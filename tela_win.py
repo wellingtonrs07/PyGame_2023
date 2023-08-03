@@ -16,7 +16,7 @@ def telawin(screen):
 
     assets = load_assets()[0]
     
-
+    #fim
     telajogo = assets[TELA_WIN]
     fundo_rect = telajogo.get_rect()
 
