@@ -134,7 +134,8 @@ def telajogo(screen):
         # Verifica se houve colisão entre nave e meteoro
         hits = pygame.sprite.spritecollide(jogador,all_obs, True)
 
-
+        if len(hits) > 0:
+            vidas 
         for obstac in hits: # OBSTACULO  
             img = random.choice(assets[LISTA_IMAGEM])  
             obs = Obstaculo(img)
