@@ -26,20 +26,10 @@ assets = load_assets()[0]
 while state != QUIT:
     if state == GAME:
         state = telainicial(tela)
-        # load e play do som de fundo
-        pygame.mixer.music.load(SOM_INICIAL)
-        pygame.mixer.music.set_volume(0.05)
-        pygame.mixer.music.play(-1)
-
     elif state == INIT:
         state = telajogo(tela)
-        # load e play do som de fundo
-    
-        pygame.mixer.music.play(-1)
-
     elif state == INTR:
         state = telainstrucoes(tela)
-        pygame.mixer.music.pause()
     elif state == OVER:
         state = telaover(tela)
     elif state == WIN:
