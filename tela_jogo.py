@@ -102,14 +102,14 @@ def telajogo(screen):
         # Calcular o tempo decorrido
         tempo_atual = time.time()
         segundos_decorridos = int(tempo_atual - tempo_inicial)
-        if segundos_decorridos >= 10 and segundos_decorridos < 20:
+        if segundos_decorridos >= 30 and segundos_decorridos < 60:
             #Aumento do nível e velocidade do carro
             scroll -= 8
             nivel = 1
-        if segundos_decorridos >= 20 and segundos_decorridos < 25:
+        if segundos_decorridos >= 60 and segundos_decorridos < 90:
             scroll -= 10
             nivel = 2
-        if segundos_decorridos >= 25:
+        if segundos_decorridos >= 90:
             ganhou = True
         # Renderizar o contador na tela
         # Renderizar o contador na tela e nivel
