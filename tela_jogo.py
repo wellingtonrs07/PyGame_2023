@@ -1,6 +1,7 @@
 # Imports e arquivos
 from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO,Imagens,Fontes, WIN
 from math import*
+import random
 import pygame
 from assets import RUA,NEW_GAME,load_assets, JOGADOR, LISTA_IMAGEM,TELA_WIN
 from classes import Button, Jogador,Obstaculo
@@ -21,7 +22,6 @@ pygame.mixer.music.play(-1)
 pygame.font.init()
 font = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),22)
 font1 = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),33)
-
 
 
 def telajogo(screen):
@@ -61,7 +61,7 @@ def telajogo(screen):
 
     # Variável para acompanhar o tempo decorrido
 
-
+    assets = load_assets()[0]
     while running:
 
 
@@ -144,6 +144,13 @@ def telajogo(screen):
 
         # Verifica se houve colisão entre nave e meteoro
         hits = pygame.sprite.spritecollide(jogador,all_obs, True)
+
+
+        for obstac in hits: # OBSTACULO  
+            img = random.choice(assets[LISTA_IMAGEM])  
+            obs = Obstaculo(img)
+            all_obs.add(obs)
+ 
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()

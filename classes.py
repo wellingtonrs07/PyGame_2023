@@ -74,7 +74,7 @@ class Obstaculo(pygame.sprite.Sprite):
         # Se o meteoro passar do final da tela, volta para cima e sorteia
         # novas posições e velocidades
         if self.rect.right < 0:
-            self.rect.x = random.randint(1000, 1300)
+            self.rect.x = 1300
             self.rect.y = random.randint(54, 520)
             self.speedx = -5
             self.speddy = 0
