@@ -9,7 +9,8 @@ from classes import Button, Jogador
 tela = pygame.display.set_mode((largura, altura))
 
 def telawin(screen):
-    assets, btns = load_assets()
+    assets = load_assets()[0]
+    btns = load_assets()[1]
     
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
@@ -23,8 +24,8 @@ def telawin(screen):
     scroll = 0
 
     # coloca a posição dos botões
-    botaosim = Button((((largura/2)-150)), (altura/4), btns[SIM])
-    botaonao = Button(((largura/2)+150),(altura/4), btns[NAO])
+    botaosim = Button((((largura/2)-250)), (altura/4)+440, btns[SIM])
+    botaonao = Button(((largura/2)+20),(altura/4)+440, btns[NAO])
 
     while running:
         # A cada loop, redesenha o fundo e os sprites

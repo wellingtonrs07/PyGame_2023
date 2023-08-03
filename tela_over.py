@@ -14,7 +14,8 @@ def telaover(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
-    assets,btns = load_assets()[0]
+    assets = load_assets()[0]
+    btns = load_assets()[1]
     
 
     # começa a rodar o loop
@@ -22,8 +23,8 @@ def telaover(screen):
     scroll = 0
 
     # coloca a posição dos botões
-    botaosim = Button((((largura/2)-150)), (altura/4), btns[SIM])
-    botaonao = Button(((largura/2)+150),(altura/4), btns[NAO])
+    botaosim = Button((((largura/2)-250)), (altura/4)+440, btns[SIM])
+    botaonao = Button(((largura/2)+20),(altura/4)+440, btns[NAO])
 
     while running:
         # A cada loop, redesenha o fundo e os sprites

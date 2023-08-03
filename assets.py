@@ -69,6 +69,8 @@ def load_assets():
     btns[INSTRUCOES] = pygame.transform.scale(btns[INSTRUCOES], (75, 75))
 
     btns[SIM] = pygame.image.load(os.path.join(Imagens,'botao_sim.png')).convert()
+    btns[SIM] = pygame.transform.scale(btns[SIM], (230, 70))
     btns[NAO] = pygame.image.load(os.path.join(Imagens,'botao_nao.png')).convert()
+    btns[NAO] = pygame.transform.scale(btns[NAO], (230, 70))
 
     return [assets,btns]
