@@ -1,5 +1,5 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul,INIT, INTR,SOM_INICIAL
+from config import largura, altura, fps, QUIT, GAME,Azul,INIT, INTR
 import pygame
 from assets import TelaI,NEW_GAME,load_assets, INSTRUCOES
 from classes import Button
@@ -18,6 +18,12 @@ pygame.mixer.init()
 
 
 def telainicial(screen):
+    
+    #Carregando o som de fundo
+    pygame.mixer.music.load('sounds/musica_tela_inicial_e_instrucoes.mp3')
+    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.play()
+
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 

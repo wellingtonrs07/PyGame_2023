@@ -9,6 +9,12 @@ tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Nitro Dash')
 
 def telainstrucoes(screen):
+    
+    #Carregando o som de fundo
+    pygame.mixer.music.load('sounds/musica_tela_inicial_e_instrucoes.mp3')
+    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.play()
+
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 

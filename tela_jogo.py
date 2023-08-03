@@ -13,9 +13,6 @@ tela = pygame.display.set_mode((largura, altura))
 pygame.mixer.init()
 
 # load e play do som de fundo
-pygame.mixer.music.load(SOM_JOGO)
-pygame.mixer.music.set_volume(0.05)
-pygame.mixer.music.play(-1)
 
 pygame.font.init()
 font = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),22)
@@ -23,6 +20,12 @@ font = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),22)
 
 
 def telajogo(screen):
+
+    #Carregando o som de fundo
+    pygame.mixer.music.load('sounds/trilha_sonora_jogando.mp3')
+    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.play()
+
     assets, btns = load_assets()
     jogador = Jogador(assets)
 
