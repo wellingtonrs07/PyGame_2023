@@ -101,7 +101,9 @@ def telajogo(screen):
         # Calcular o tempo decorrido
         tempo_atual = time.time()
         segundos_decorridos = int(tempo_atual - tempo_inicial)
-
+        if segundos_decorridos >= 60:
+            #Aumento do nível e velocidade do carro
+            scroll -= 10
         # Renderizar o contador na tela
         texto_contador = font.render(f"{segundos_decorridos} seg", True, (255, 255, 255))
         screen.blit(texto_contador, (10, 10))
@@ -112,14 +114,6 @@ def telajogo(screen):
         # Verifica se houve colisão entre nave e meteoro
         hits = pygame.sprite.spritecollide(jogador,all_obs, True)
 
-        if len(hits) == 0 and segundos_decorridos // 20 == 0:
-            vidas += 1
-
-        if len(hits) > 0:
-            vidas -=1
-
-            if vidas == 0:
-                over = True
 
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
@@ -160,7 +154,13 @@ def telajogo(screen):
             img = random.choice(assets[LISTA_IMAGEM])  
             obs = Obstaculo(img)
             all_obs.add(obs)
- 
+
+        
+        if len(hits) > 0:
+            vidas -=1
+
+            if vidas == 0:
+                over = True
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
