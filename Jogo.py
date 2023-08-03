@@ -2,7 +2,7 @@
 
 # Importar bibliotecas e arquivos
 import pygame
-from config import largura,altura,fps,GAME,QUIT,INIT,INTR,RET,SOM_INICIAL,SOM_JOGO,WIN, OVER
+from config import largura,altura,fps,GAME,QUIT,INIT,INTR,RET,WIN, OVER
 from tela_inicial import telainicial
 from tela_jogo import telajogo
 from tela_instrucoes import telainstrucoes
