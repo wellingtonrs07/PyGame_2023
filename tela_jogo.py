@@ -1,10 +1,12 @@
 # Imports e arquivos
 from config import largura, altura, fps, QUIT, GAME,Azul, INIT,Imagens,Fontes
 from math import*
+import random
 import pygame
-from assets import RUA,NEW_GAME,load_assets, JOGADOR, LISTA_IMAGEM
+from assets import RUA,NEW_GAME,load_assets, JOGADOR, LISTA_IMAGEM,TELA_WIN
 from classes import Button, Jogador,Obstaculo
 from os import path
+import time
 
 
 # Gera a tela
@@ -16,7 +18,7 @@ pygame.mixer.init()
 
 pygame.font.init()
 font = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),22)
-
+font1 = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),33)
 
 
 def telajogo(screen):
@@ -32,6 +34,12 @@ def telajogo(screen):
 
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
+
+    # Variável para acompanhar o tempo decorrido
+    tempo_inicial = time.time()
+
+    #Variável para contabilizar as vidas:
+    vidas = 3
 
     coracao = pygame.image.load(path.join(Imagens, 'coracao.png')).convert_alpha()
     coracao = pygame.transform.scale(coracao, (70, 50))
@@ -56,7 +64,7 @@ def telajogo(screen):
 
     # Variável para acompanhar o tempo decorrido
 
-
+    assets = load_assets()[0]
     while running:
 
 
@@ -89,6 +97,21 @@ def telajogo(screen):
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
 
+        # Calcular o tempo decorrido
+        tempo_atual = time.time()
+        segundos_decorridos = int(tempo_atual - tempo_inicial)
+        if segundos_decorridos == 15:
+            level1 = True
+
+
+        # Renderizar o contador na tela
+        texto_contador = font.render(f"{segundos_decorridos} seg", True, (255, 255, 255))
+        screen.blit(texto_contador, (10, 10))
+
+        # Renderizar o contador de vidas
+        vidas_contador = font1.render(f'{vidas}',True, (255,255,255))
+        screen.blit(vidas_contador, (1230, 15))
+
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
             # Verifica se foi fechado.
@@ -113,12 +136,25 @@ def telajogo(screen):
                 
                 if event.key == pygame.K_DOWN:#verifica a tecla apertada 
                     jogador.vy_jogador += 8 #faz o jogador se movimentar para baixo
+
+
                     
 
         all_obs.update()
         jogador.update()
 
         all_obs.draw(screen)
+
+        # Verifica se houve colisão entre nave e meteoro
+        hits = pygame.sprite.spritecollide(jogador,all_obs, True)
+
+        if len(hits) > 0:
+            vidas 
+        for obstac in hits: # OBSTACULO  
+            img = random.choice(assets[LISTA_IMAGEM])  
+            obs = Obstaculo(img)
+            all_obs.add(obs)
+ 
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
