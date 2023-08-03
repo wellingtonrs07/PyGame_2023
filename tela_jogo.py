@@ -1,5 +1,5 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO,Imagens
+from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO,Imagens,Fontes
 from math import*
 import pygame
 from assets import RUA,NEW_GAME,load_assets, JOGADOR, LISTA_IMAGEM
@@ -16,6 +16,9 @@ pygame.mixer.init()
 pygame.mixer.music.load(SOM_JOGO)
 pygame.mixer.music.set_volume(0.05)
 pygame.mixer.music.play(-1)
+
+pygame.font.init()
+font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
 
 
 
