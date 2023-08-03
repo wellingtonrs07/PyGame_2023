@@ -99,7 +99,7 @@ def telajogo(screen):
   
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
-
+        nivel = 0
         # Calcular o tempo decorrido
         tempo_atual = time.time()
         segundos_decorridos = int(tempo_atual - tempo_inicial)
@@ -113,8 +113,11 @@ def telajogo(screen):
         if segundos_decorridos == 120:
             ganhou = True
         # Renderizar o contador na tela
+        # Renderizar o contador na tela e nivel
         texto_contador = font.render(f"{segundos_decorridos} seg", True, (255, 255, 255))
         screen.blit(texto_contador, (10, 10))
+        nivel_tela = font.render(f'Nivel {nivel}',True,(255,255,255))
+        screen.blit(nivel_tela,(10,30))
 
         # Renderizar o contador de vidas
         vidas_contador = font1.render(f'{vidas}',True, (255,255,255))
