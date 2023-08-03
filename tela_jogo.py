@@ -6,6 +6,7 @@ import pygame
 from assets import RUA,NEW_GAME,load_assets, JOGADOR, LISTA_IMAGEM
 from classes import Button, Jogador,Obstaculo
 from os import path
+import time
 
 
 # Gera a tela
@@ -29,6 +30,9 @@ def telajogo(screen):
 
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
+
+    # Variável para acompanhar o tempo decorrido
+    tempo_inicial = time.time()
 
     coracao = pygame.image.load(path.join(Imagens, 'coracao.png')).convert_alpha()
     coracao = pygame.transform.scale(coracao, (70, 50))
@@ -86,6 +90,14 @@ def telajogo(screen):
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
 
+        # Calcular o tempo decorrido
+        tempo_atual = time.time()
+        segundos_decorridos = int(tempo_atual - tempo_inicial)
+
+        # Renderizar o contador na tela
+        texto_contador = font.render(f"{segundos_decorridos} seg", True, (255, 255, 255))
+        screen.blit(texto_contador, (10, 10))
+
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
             # Verifica se foi fechado.
@@ -110,6 +122,8 @@ def telajogo(screen):
                 
                 if event.key == pygame.K_DOWN:#verifica a tecla apertada 
                     jogador.vy_jogador += 8 #faz o jogador se movimentar para baixo
+
+
                     
 
         all_obs.update()
