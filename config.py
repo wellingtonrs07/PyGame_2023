@@ -27,6 +27,7 @@ OVER = 7
 Azul = (0,0,255)
 # Paths para arquivos/pastas
 Imagens = path.join(path.dirname(__file__), 'images')
+Fontes = path.join(path.dirname(__file__), 'fonts')
 
 #Load dos sons do jogo
 Click = path.join(path.dirname(__file__), 'sounds', 'mixkit-fast-double-click-on-mouse-275.wav')

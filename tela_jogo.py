@@ -18,7 +18,7 @@ pygame.mixer.music.set_volume(0.05)
 pygame.mixer.music.play(-1)
 
 pygame.font.init()
-font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
+font = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),22)
 
 
 
