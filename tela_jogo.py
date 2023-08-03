@@ -21,6 +21,7 @@ font = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),22)
 font1 = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),33)
 
 
+
 def telajogo(screen):
 
     #Carregando o som de fundo
