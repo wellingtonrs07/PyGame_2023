@@ -8,7 +8,8 @@ from classes import Button, Jogador,Obstaculo
 from os import path
 import time
 
-
+# Nível
+nivel = 0
 # Gera a tela
 tela = pygame.display.set_mode((largura, altura))
 #Inicializa mixer
@@ -19,7 +20,6 @@ pygame.mixer.init()
 pygame.font.init()
 font = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),22)
 font1 = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),33)
-
 
 
 def telajogo(screen):
@@ -65,6 +65,7 @@ def telajogo(screen):
 
     # Variável para acompanhar o tempo decorrido
     over = False
+    ganhou = False
     assets = load_assets()[0]
     while running:
 
@@ -97,14 +98,26 @@ def telajogo(screen):
   
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
-
+        nivel = 0
         # Calcular o tempo decorrido
         tempo_atual = time.time()
         segundos_decorridos = int(tempo_atual - tempo_inicial)
-
+        if segundos_decorridos >= 30 and segundos_decorridos < 60:
+            #Aumento do nível e velocidade do carro
+            scroll -= 8
+            nivel = 1
+        if segundos_decorridos >= 60 and segundos_decorridos < 90:
+            scroll -= 10
+            nivel = 2
+        if segundos_decorridos >= 90:
+            ganhou = True
         # Renderizar o contador na tela
+        # Renderizar o contador na tela e nivel
         texto_contador = font.render(f"{segundos_decorridos} seg", True, (255, 255, 255))
         screen.blit(texto_contador, (10, 10))
+        nivel_tela = font.render(f'Nivel {nivel}',True,(255,255,255))
+        screen.blit(nivel_tela,(10,30))
+
 
         # Renderizar o contador de vidas
         vidas_contador = font1.render(f'{vidas}',True, (255,255,255))
@@ -120,9 +133,13 @@ def telajogo(screen):
                 state = QUIT # muda o state para quit
                 running = False # para de rodar
             
+            if ganhou == True:
+                state = WIN
+                running = False
             if over == True:
-                    state = OVER
-                    running = False
+                state = OVER
+                running = False
+            
             
             # Verifica se apertou alguma tecla.
             if event.type == pygame.KEYUP:
@@ -155,10 +172,13 @@ def telajogo(screen):
 
         
         if len(hits) > 0:
-            vidas -=1
-
+            if vidas != 0:
+                vidas -=1
+            if vidas > 0 and segundos_decorridos == 90:
+                ganhou = True
             if vidas == 0:
                 over = True
+
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
