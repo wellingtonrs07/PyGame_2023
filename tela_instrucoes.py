@@ -1,7 +1,7 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul, RET
+from config import largura, altura, fps, QUIT, GAME,Azul
 import pygame
-from assets import TelaI, TelaInstrucao, INSTRUCOES, RETURN,load_assets
+from assets import TelaInstrucao, RETURN, load_assets
 from classes import Button
 
 # Gera a tela
@@ -43,8 +43,7 @@ def telainstrucoes(screen):
                 running = False # para de rodar
 
             if ret:
-                state = RET # muda para a intro do jogo (telaintro)
-                state = RET # muda para a intro do jogo (telaintro)
+                state = GAME # muda para a intro do jogo (telaintro)
                 running = False # para de rodar
 
         # Depois de desenhar tudo, inverte o display.

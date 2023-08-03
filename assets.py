@@ -40,7 +40,7 @@ def load_assets():
     assets[TELA_WIN] = pygame.transform.scale(assets[TELA_WIN],(largura, altura))
 
     assets[TELA_OVER] =  pygame.image.load(os.path.join(Imagens, 'tela_game_over.png')).convert_alpha()
-    assets[TELA_OVER] = pygame.transform.scale(assets[TELA_WIN],(largura, altura))
+    assets[TELA_OVER] = pygame.transform.scale(assets[TELA_OVER],(largura, altura))
 
     assets[LISTA_IMAGEM] =  [
         pygame.image.load(os.path.join(Imagens, 'lixo.png')).convert_alpha(), 

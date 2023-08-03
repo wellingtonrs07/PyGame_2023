@@ -2,12 +2,13 @@
 
 # Importar bibliotecas e arquivos
 import pygame
-from config import largura,altura,fps,GAME,QUIT,INIT,INTR,RET,SOM_INICIAL,SOM_JOGO,WIN
+from config import largura,altura,fps,GAME,QUIT,INIT,INTR,RET,SOM_INICIAL,SOM_JOGO,WIN, OVER
 from tela_inicial import telainicial
 from tela_jogo import telajogo
 from tela_instrucoes import telainstrucoes
 from assets import load_assets
 from tela_win import telawin
+from tela_over import telaover
 
 
 # Inicializa o pygame e o mixer
@@ -29,17 +30,19 @@ while state != QUIT:
         pygame.mixer.music.load(SOM_INICIAL)
         pygame.mixer.music.set_volume(0.05)
         pygame.mixer.music.play(-1)
+
     elif state == INIT:
         state = telajogo(tela)
         # load e play do som de fundo
         pygame.mixer.music.load(SOM_JOGO)
         pygame.mixer.music.set_volume(0.05)
         pygame.mixer.music.play(-1)
+
     elif state == INTR:
         state = telainstrucoes(tela)
         pygame.mixer.music.pause()
-    elif state == RET:
-        state = telainicial(tela)
+    elif state == OVER:
+        state = telaover(tela)
     elif state == WIN:
         state = telawin(tela)
     else:
