@@ -80,5 +80,3 @@ class Obstaculo(pygame.sprite.Sprite):
             self.speddy = 0
 
 
-
-            self.rect.y = 54
