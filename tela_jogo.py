@@ -101,7 +101,9 @@ def telajogo(screen):
         # Calcular o tempo decorrido
         tempo_atual = time.time()
         segundos_decorridos = int(tempo_atual - tempo_inicial)
-
+        if segundos_decorridos >= 60:
+            #Aumento do nível e velocidade do carro
+            scroll -= 10
         # Renderizar o contador na tela
         texto_contador = font.render(f"{segundos_decorridos} seg", True, (255, 255, 255))
         screen.blit(texto_contador, (10, 10))
