@@ -66,6 +66,7 @@ def telajogo(screen):
 
     # Variável para acompanhar o tempo decorrido
     over = False
+    ganhou = False
     assets = load_assets()[0]
     while running:
 
@@ -106,9 +107,11 @@ def telajogo(screen):
             #Aumento do nível e velocidade do carro
             scroll -= 8
             nivel = 1
-        if segundos_decorridos >= 90:
+        if segundos_decorridos >= 90 and segundos_decorridos < 120:
             scroll -= 10
             nivel = 2
+        if segundos_decorridos == 120:
+            ganhou = True
         # Renderizar o contador na tela
         texto_contador = font.render(f"{segundos_decorridos} seg", True, (255, 255, 255))
         screen.blit(texto_contador, (10, 10))
@@ -128,8 +131,11 @@ def telajogo(screen):
                 running = False # para de rodar
             
             if over == True:
-                    state = OVER
-                    running = False
+                state = OVER
+                running = False
+            if ganhou == True:
+                state = WIN
+                running = False
             
             # Verifica se apertou alguma tecla.
             if event.type == pygame.KEYUP:
@@ -162,8 +168,10 @@ def telajogo(screen):
 
         
         if len(hits) > 0:
-            vidas -=1
-
+            if vidas != 0:
+                vidas -=1
+            if vidas > 0 and segundos_decorridos == 90:
+                ganhou = True
             if vidas == 0:
                 over = True
 
