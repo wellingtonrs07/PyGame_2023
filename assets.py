@@ -21,6 +21,8 @@ OBSTACULO2 = 'saco de lixo'
 OBSTACULO3 = 'maciel'
 OBSTACULO4 = 'mendigo'
 VIDA = 'VIDA'
+SIM = 'SIM'
+NAO = 'NAO'
 
 def load_assets():
     assets = {}
@@ -65,5 +67,8 @@ def load_assets():
 
     btns[INSTRUCOES] = pygame.image.load(os.path.join(Imagens, 'btn_inte.png')).convert_alpha()
     btns[INSTRUCOES] = pygame.transform.scale(btns[INSTRUCOES], (75, 75))
+
+    btns[SIM] = pygame.image.load(os.path.join(Imagens,'botao_sim.png')).convert()
+    btns[NAO] = pygame.image.load(os.path.join(Imagens,'botao_nao.png')).convert()
 
     return [assets,btns]
