@@ -53,3 +53,30 @@ class Jogador(pygame.sprite.Sprite):
         
         if self.rect.y < 54:
             self.rect.y = 54
+
+#criando classe pros obstaculos
+import random
+class Obstaculo(pygame.sprite.Sprite):
+    def __init__(self, image):
+        pygame.sprite.Sprite.__init__(self)
+        
+        self.image = image
+        self.mask = pygame.mask.from_surface(self.image)
+        self.rect = self.image.get_rect()
+        self.rect.x = 1000
+        self.rect.y = random.randint(54, 520)
+        self.speedx = -5
+        self.speddy = 0
+
+    def update(self):
+        self.rect.x += self.speedx
+
+        # Se o meteoro passar do final da tela, volta para cima e sorteia
+        # novas posições e velocidades
+        if self.rect.right < 0:
+            self.rect.x = random.randint(1000, 1300)
+            self.rect.y = random.randint(54, 520)
+            self.speedx = -5
+            self.speddy = 0
+
+

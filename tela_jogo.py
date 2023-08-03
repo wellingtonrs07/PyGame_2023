@@ -1,9 +1,10 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO
+from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO,Imagens,Fontes
 from math import*
 import pygame
-from assets import RUA,NEW_GAME,load_assets, JOGADOR
-from classes import Button, Jogador
+from assets import RUA,NEW_GAME,load_assets, JOGADOR, LISTA_IMAGEM
+from classes import Button, Jogador,Obstaculo
+from os import path
 
 
 # Gera a tela
@@ -16,27 +17,44 @@ pygame.mixer.music.load(SOM_JOGO)
 pygame.mixer.music.set_volume(0.05)
 pygame.mixer.music.play(-1)
 
+pygame.font.init()
+font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
+
 
 
 def telajogo(screen):
     assets, btns = load_assets()
     jogador = Jogador(assets)
 
+
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
+
+    coracao = pygame.image.load(path.join(Imagens, 'coracao.png')).convert_alpha()
+    coracao = pygame.transform.scale(coracao, (70, 50))
+    coracaoRect = coracao.get_rect()
+    coracaoRect.center = (1200, 30)
 
     assets = load_assets()[0]
     
 
     telajogo = assets[RUA]
-    fundo_rect = telajogo.get_rect()
 
     # começa a rodar o loop
     running = True
     scroll = 0
+    all_obs = pygame.sprite.Group()
+
+    groups = {}
+    groups['all_obs'] = all_obs
+    for obs in assets[LISTA_IMAGEM]:
+        obs = Obstaculo(obs)
+        all_obs.add(obs)
 
 
     while running:
+
+
         #Toca a música
         pygame.mixer.music.set_volume(0.4)
         
@@ -60,6 +78,7 @@ def telajogo(screen):
             scroll = 0
         
         screen.blit(jogador.image, (jogador.rect.x, jogador.rect.y))
+        screen.blit(coracao,coracaoRect)
 
   
         # Ajusta a velocidade do jogo.
@@ -91,8 +110,10 @@ def telajogo(screen):
                     jogador.vy_jogador += 8 #faz o jogador se movimentar para baixo
                     
 
-
+        all_obs.update()
         jogador.update()
+
+        all_obs.draw(screen)
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
