@@ -22,7 +22,6 @@ font = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),22)
 font1 = pygame.font.Font((path.join(Fontes,'pixelart.ttf')),33)
 
 
-
 def telajogo(screen):
 
     #Carregando o som de fundo
@@ -103,14 +102,14 @@ def telajogo(screen):
         # Calcular o tempo decorrido
         tempo_atual = time.time()
         segundos_decorridos = int(tempo_atual - tempo_inicial)
-        if segundos_decorridos >= 60 and segundos_decorridos < 90:
+        if segundos_decorridos >= 10 and segundos_decorridos < 20:
             #Aumento do nível e velocidade do carro
             scroll -= 8
             nivel = 1
-        if segundos_decorridos >= 90 and segundos_decorridos < 120:
+        if segundos_decorridos >= 20 and segundos_decorridos < 25:
             scroll -= 10
             nivel = 2
-        if segundos_decorridos == 120:
+        if segundos_decorridos >= 25:
             ganhou = True
         # Renderizar o contador na tela
         # Renderizar o contador na tela e nivel
@@ -118,6 +117,7 @@ def telajogo(screen):
         screen.blit(texto_contador, (10, 10))
         nivel_tela = font.render(f'Nivel {nivel}',True,(255,255,255))
         screen.blit(nivel_tela,(10,30))
+
 
         # Renderizar o contador de vidas
         vidas_contador = font1.render(f'{vidas}',True, (255,255,255))
@@ -133,12 +133,13 @@ def telajogo(screen):
                 state = QUIT # muda o state para quit
                 running = False # para de rodar
             
-            if over == True:
-                state = OVER
-                running = False
             if ganhou == True:
                 state = WIN
                 running = False
+            if over == True:
+                state = OVER
+                running = False
+            
             
             # Verifica se apertou alguma tecla.
             if event.type == pygame.KEYUP:
@@ -177,6 +178,7 @@ def telajogo(screen):
                 ganhou = True
             if vidas == 0:
                 over = True
+
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()

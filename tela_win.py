@@ -31,8 +31,6 @@ def telawin(screen):
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Azul)
 
-        imagem_fundo_bg = telajogo.get_width()
-
         screen.blit(assets[TELA_WIN], (scroll, 0))
 
         # Desenha os botões
@@ -53,4 +51,7 @@ def telawin(screen):
                 state = GAME
                 running = False
 
+    # Depois de desenhar tudo, inverte o display.
+        pygame.display.flip()
+        pygame.display.update()
     return state
