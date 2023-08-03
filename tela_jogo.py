@@ -1,5 +1,5 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO,Imagens,Fontes, WIN, OVER
+from config import largura, altura, fps, QUIT, GAME,Azul, INIT,Imagens,Fontes, WIN, OVER
 from math import*
 import random
 import pygame
@@ -100,9 +100,6 @@ def telajogo(screen):
         # Calcular o tempo decorrido
         tempo_atual = time.time()
         segundos_decorridos = int(tempo_atual - tempo_inicial)
-        if segundos_decorridos == 15:
-            level1 = True
-
 
         # Renderizar o contador na tela
         texto_contador = font.render(f"{segundos_decorridos} seg", True, (255, 255, 255))
@@ -113,6 +110,9 @@ def telajogo(screen):
         screen.blit(vidas_contador, (1230, 15))
         # Verifica se houve colisão entre nave e meteoro
         hits = pygame.sprite.spritecollide(jogador,all_obs, True)
+
+        if len(hits) == 0 and segundos_decorridos // 20 == 0:
+            vidas += 1
 
         if len(hits) > 0:
             vidas -=1
