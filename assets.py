@@ -2,6 +2,7 @@ import pygame
 import os
 from config import largura, altura, WIDTH_CARRO, HEIGHT_CARRO, WIDTH_NPC,HEIGHT_NPC, Imagens
 
+#Nomeando as keys do dicionário assets
 PAISAGEM = 'paisagem'
 CARRO_IMG = 'carro'
 RUA = 'rua'
@@ -21,6 +22,13 @@ OBSTACULO3 = 'maciel'
 OBSTACULO4 = 'mendigo'
 VIDA = 'VIDA'
 
+#Carregando os sons do jogo
+pygame.mixer.music.load('sounds/musica_tela_inicial_e_instrucoes.mp3')
+pygame.mixer.music.set_volume(0.5)
+pygame.mixer.music.load('sounds/trilha_sonora_jogando.mp3')
+pygame.mixer.music.set_volume(0.5)
+tela_inicial_som = pygame.mixer.Sound('sounds/musica_tela_inicial_e_instrucoes.mp3')
+tela_jogo_som = pygame.mixer.Sound('sounds/trilha_sonora_jogando.mp3')
 
 def load_assets():
     assets = {}

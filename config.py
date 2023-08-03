@@ -31,5 +31,3 @@ Fontes = path.join(path.dirname(__file__), 'fonts')
 
 #Load dos sons do jogo
 Click = path.join(path.dirname(__file__), 'sounds', 'mixkit-fast-double-click-on-mouse-275.wav')
-SOM_INICIAL = path.join(path.dirname(__file__), 'sounds','musica_tela_inicial_e_instrucoes.mp3')
-SOM_JOGO = path.join(path.dirname(__file__), 'sounds','trilha_sonora_jogando.mp3')

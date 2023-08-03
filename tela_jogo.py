@@ -1,5 +1,5 @@
 # Imports e arquivos
-from config import largura, altura, fps, QUIT, GAME,Azul, INIT,SOM_JOGO,Imagens,Fontes
+from config import largura, altura, fps, QUIT, GAME,Azul, INIT,Imagens,Fontes
 from math import*
 import pygame
 from assets import RUA,NEW_GAME,load_assets, JOGADOR, LISTA_IMAGEM
